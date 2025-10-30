@@ -27,7 +27,7 @@ The examples folder include example scripts to run this package (Note these scri
 * adv_gen.py shows how to conduct adversarial attack, still under development
 * live_detection.py shows how to create NIDS pipeline 
 * summarize_results.py contains functions to plot the anomaly scores
-* run_lager_xai.py runs all configurations in the ./configs/ directory, and applies XAI methods to LAGER
+* run_lager_xai.py runs all configurations in the `./configs/ directory`, and applies XAI methods to LAGER
 
 You can make your own scripts to customize behavior and functionality.
 
