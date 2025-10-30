@@ -1,0 +1,19 @@
+skip: True
+dataset: "../datasets/test_data"
+batch_size: 256
+benign_file: "benign_lenovo_bulb"
+fe_class: "AfterImageGraph"
+fe_name: "AfterImageGraph(TCP,UDP,ARP,ICMP,Other)"
+model_names:
+- "ICL"
+- "Kitsune"
+- "GOAD"
+- "SLAD"
+node_encoders:
+- "LinearNodeEncoder"
+- "GCNNodeEncoder"
+- "GATNodeEncoder"
+distribution:
+- "log-normal"
+- "uniform"
+- "gaussian"

@@ -1,0 +1,17 @@
+skip: False
+dataset: "../datasets/UQIOT2022"
+batch_size: 256
+benign_file: "benign_samples/whole_week"
+fe_class: "AfterImageGraph"
+fe_name: "AfterImageGraph(TCP,UDP,ARP,ICMP,Other)"
+model_names:
+- "ICL"
+- "Kitsune"
+node_encoders:
+- "LinearNodeEncoder"
+- "GCNNodeEncoder"
+- "GATNodeEncoder"
+distribution:
+- "log-normal"
+- "uniform"
+- "gaussian"

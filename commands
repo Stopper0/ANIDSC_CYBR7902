@@ -1,0 +1,2 @@
+docker run --gpus all -it --ipc=host --ulimit memlock=-1 --ulimit stack=67108864 --rm -v "/local/local/ANIDSC-ccd73c5480fb6cdbeb7fea1ea5d09c0846eead6b":/workspace/ANIDSC kihy/nids_framework bash
+
