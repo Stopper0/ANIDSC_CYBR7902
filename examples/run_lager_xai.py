@@ -436,7 +436,7 @@ def create_pipeline(
     # Train LIME Explainer Models
     prior = sample_prior(distribution=pipeline_desc["distribution"], examples=500, seed=42)
 
-    XAI Evaluations on configurations
+    # XAI Evaluations on configurations
     xeval = ExplainEvaluator(
         model = model,
         prior=prior,
@@ -738,3 +738,4 @@ if __name__=="__main__":
         
 
         print("------------------------------------")
+
