@@ -436,21 +436,22 @@ def create_pipeline(
     # Train LIME Explainer Models
     prior = sample_prior(distribution=pipeline_desc["distribution"], examples=500, seed=42)
 
-    # XAI Evaluations on configurations
-    # xeval = ExplainEvaluator(
-    #     model = model,
-    #     prior=prior,
-    #     explain_interval=1000, # explanations are expensive
-    #     draw_graph_rep_interval=100,
-    #     save_results=False, # pass to xcollate to save results
-    # )  
-
-    baseval = evaluator.BaseEvaluator(
-        METRICS,
-        log_to_tensorboard=False,
-        save_results=False,
+    XAI Evaluations on configurations
+    xeval = ExplainEvaluator(
+        model = model,
+        prior=prior,
+        explain_interval=1000, # explanations are expensive
         draw_graph_rep_interval=100,
-    )
+        save_results=False, # pass to xcollate to save results
+    )  
+
+    # # Vanilla evaluator from original repository
+    # baseval = evaluator.BaseEvaluator(
+    #     METRICS,
+    #     log_to_tensorboard=False,
+    #     save_results=False,
+    #     draw_graph_rep_interval=100,
+    # )
 
     # Graph Encoding
     standardiser = LivePercentile()
@@ -463,11 +464,11 @@ def create_pipeline(
         MultilayerSplitter,
         "models",
         model_name,
-        pipeline=(standardiser | graph_representation | encoder_model | baseval)
+        pipeline=(standardiser | graph_representation | encoder_model | xeval)
     )
 
-    # xcollate = CollateExplainEvaluator(save_results=True) # The collate_evaluator will save to output location
-    collate = evaluator.CollateEvaluator(log_to_tensorboard=False, save_results=True)
+    xcollate = CollateExplainEvaluator(save_results=True) # The collate_evaluator will save to output location
+    # collate = evaluator.CollateEvaluator(log_to_tensorboard=False, save_results=True)
     
     # Construct Pipeline
     # pipeline = protocol_splitter | xcollate
@@ -735,4 +736,5 @@ if __name__=="__main__":
                 run_benign_pipeline(dataset, benign_file, pipeline_desc, fe_class, fe_name, batch_size)
                 run_attack(dataset, benign_file, pipeline_desc, fe_class, fe_name, batch_size)
         
+
         print("------------------------------------")
