@@ -4,7 +4,7 @@
 # Setting up directories
 It is recommended to have two folders, one for dataset and one for actual code.
 
-The dataset folder structure should be something like ./datasets/{dataset_name}/pcap/{filename}
+The dataset folder structure should be like the following: ./datasets/{dataset_name}/pcap/{filename}
 
 There is no restriction on code structure 
 
@@ -27,6 +27,7 @@ The examples folder include example scripts to run this package (Note these scri
 * adv_gen.py shows how to conduct adversarial attack, still under development
 * live_detection.py shows how to create NIDS pipeline 
 * summarize_results.py contains functions to plot the anomaly scores
+* run_lager_xai.py runs all configurations in the ./configs/ directory, and applies XAI methods to LAGER
 
 You can make your own scripts to customize behavior and functionality.
 
